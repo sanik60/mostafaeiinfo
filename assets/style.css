@@ -47,9 +47,8 @@ body {
    PRINT BUTTON
    ========================================================= */
 .print-btn-circle {
-    position: fixed;
-    top: 6px;
-    left: 6px;
+    position: relative;
+    /* or remove position entirely */
     width: 38px;
     height: 38px;
     background: #ffffffdd;
@@ -58,12 +57,76 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 999;
 }
 
 .print-icon {
     width: 24px;
     height: 24px;
+}
+
+.print-actions {
+    position: fixed;
+    top: 6px;
+    left: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 999;
+}
+
+.print-btn-circle:hover {
+    background: #ffffff;
+    box-shadow:
+        0 10px 6px rgba(240, 149, 149, 0.25),
+        0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+
+.tooltip {
+    position: absolute;
+    left: 46px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #111;
+    color: #122a4a;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s ease;
+    background: transparent;
+    text-shadow: none;
+
+}
+
+.print-btn-circle:hover .tooltip {
+    animation: tooltip-show-hide 1.4s ease-out forwards;
+}
+
+@keyframes tooltip-show-hide {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    /* appear quickly */
+    75% {
+        opacity: 1;
+    }
+
+    /* stay readable */
+    100% {
+        opacity: 0;
+    }
+
+    /* soft fade out */
 }
 
 
@@ -486,6 +549,30 @@ body {
         transform: none;
     }
 
+    .print-actions {
+        top: 8px;
+        left: 8px;
+        gap: 10px;
+    }
+
+    .print-btn-circle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .print-icon {
+        width: 26px;
+        height: 26px;
+    }
+
+    .tooltip {
+        font-size: 13px;
+        left: 50px;
+        color: whitesmoke;
+        background-color: #1c3963;
+    }
+
+
     .header-inner {
         flex-direction: column;
         align-items: center;
@@ -658,19 +745,36 @@ body {
     }
 
     .print-btn-circle {
+        position: relative;
+        /* 🔑 critical */
+        width: 44px;
+        height: 44px;
+    }
+
+
+    .print-actions {
         position: fixed;
-        top: 6px;
-        left: 6px;
-        width: 38px;
-        height: 38px;
-        background: #ffffffdd;
-        border-radius: 50%;
+        top: 10px;
+        left: 10px;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
+        flex-direction: column;
+        gap: 12px;
         z-index: 999;
     }
+
+    .print-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .tooltip {
+        font-size: 14px;
+        left: 56px;
+        color: whitesmoke;
+        background-color: #1c3963;
+    }
+
+
 
 
     #header-row {
@@ -816,19 +920,38 @@ body {
     }
 
     .print-btn-circle {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 48px;
+        height: 48px;
+    }
+
+    .print-actions {
         position: fixed;
-        top: 6px;
-        left: 6px;
-        width: 38px;
-        height: 38px;
-        background: #ffffffdd;
-        border-radius: 50%;
+        top: auto;
+        bottom: 12px;
+        left: 12px;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
+        flex-direction: column;
+        gap: 14px;
         z-index: 999;
     }
+
+
+    .print-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .tooltip {
+        font-size: 14px;
+        left: 56px;
+        color: whitesmoke;
+        background-color: #1c3963;
+
+    }
+
 
     #header-row {
         border-radius: 0;
