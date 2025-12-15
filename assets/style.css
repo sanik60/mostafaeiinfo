@@ -3,7 +3,7 @@
    ========================================================= */
 body {
     margin: 0;
-    padding: 40px 0 0 0;
+    padding: 0;
     font-family: "Inter", "SF Pro Text", sans-serif;
     display: flex;
     flex-direction: column;
@@ -31,6 +31,9 @@ body {
     transform: translateY(20px) scale(0.985);
     animation: fadeCard 1s cubic-bezier(0.30, 0.90, 0.32, 1.28) forwards;
     flex-grow: 1;
+    overflow: hidden;
+
+    margin-top: 40px;
 
 }
 
@@ -134,7 +137,7 @@ body {
    ========================================================= */
 #header-row {
     background: linear-gradient(to bottom, #142237 0%, #0d1d2f 100%);
-    border-radius: 8px 8px 0 0;
+    border-radius: 0;
     position: relative;
     overflow: hidden;
     color: white;
@@ -544,8 +547,13 @@ body {
         max-width: 1000px;
         min-width: initial;
         padding: 0 0 0 0;
-        margin-top: 0;
         transform: none;
+        padding: 0 0 65px 0;
+        margin-top: -5px;
+    }
+
+    #header-row {
+        margin-top: 0;
     }
 
     .print-actions {
@@ -774,9 +782,9 @@ body {
 
 
 
-    #header-row {
+    /* #header-row {
         border-radius: 0;
-    }
+    } */
 
     .header-inner {
         flex-direction: column;
@@ -926,8 +934,8 @@ body {
 
     .print-actions {
         position: fixed;
-        top: auto;
-        bottom: 12px;
+        top: calc(env(safe-area-inset-top, 0px) + 10px);
+        bottom: auto;
         left: 12px;
         display: flex;
         flex-direction: column;
@@ -937,8 +945,8 @@ body {
 
 
     .print-icon {
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
     }
 
     .tooltip {
