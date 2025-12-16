@@ -81,7 +81,10 @@
 </script>
 
 
+
+
 <link rel="canonical" href="https://mostafaei.info/" />
+
 
 
 <body>
@@ -125,7 +128,8 @@
 
 
     <div class="card">
-        <div id="header-row">
+        
+        <div id="header-row" class="dark-zone">
             <div class="header-inner">
 
                 <div class="header-text-block">
@@ -154,9 +158,8 @@
 
 
                                 <!-- LinkedIn -->
-                                <a href="https://www.linkedin.com/in/saeid-mostafaei"
-                                    class="linkedin-link icon-circle" target="_blank" rel="noopener noreferrer"
-                                    aria-label="LinkedIn profile">
+                                <a href="https://www.linkedin.com/in/saeid-mostafaei" class="linkedin-link icon-circle"
+                                    target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
                                     in
                                 </a>
 
@@ -171,7 +174,7 @@
         </div>
 
 
-        <div class="row" id="summary-row">
+        <div class="row light-zone" id="summary-row">
             <div class="summary-block">
                 <p>
                     Microsoft-certified Software Engineer specializing in Artificial Intelligent systems for both
@@ -192,7 +195,7 @@
             </div>
         </div>
 
-        <div class="row" id="content-row">
+        <div class="row light-zone" id="content-row">
             <div class="inner">
                 <div class="content-inner">
                     <div class="left-col">
@@ -501,8 +504,6 @@
 
                         </div>
 
-
-
                     </div>
 
                     <div class="right-col">
@@ -729,7 +730,27 @@
         © 2025 Saeid Mostafaei
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.print-btn-circle');
+            const lightZone = document.querySelector('.light-zone');
+
+            if (!lightZone || !buttons.length) return;
+
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    buttons.forEach(btn =>
+                        btn.classList.toggle('on-light', entry.isIntersecting)
+                    );
+                },
+                { threshold: 0.6 }
+            );
+
+            observer.observe(lightZone);
+        });
+    </script>
 
 </body>
+
 
 </html>
